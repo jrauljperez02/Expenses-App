@@ -1,9 +1,12 @@
 
 import Expenses from './components/Expeses/Expenses';
 import NewExpense from './components/NewExpense/NewExpense';
-
+import ExpensesFilter from './components/NewExpense/ExpensesFIlter'
 
 function App() {
+
+  
+
 
   const expenses = [
     {id:'e1',title: 'Toilet Paper', amount: 90.12, date: new Date(2020,7,14)},
@@ -13,14 +16,17 @@ function App() {
     {id:'e5',title: 'Food ',amount:230,date: new Date(2022,2,5)}
   ];
 
-  
+  const addExpenseHandler = expense => {
+    console.log('In App.js')
+    console.log(expense)
+  }
+
   return (
     <div>
+      <NewExpense onAddExpense = {addExpenseHandler}/>
+      <ExpensesFilter/>
       <Expenses items={expenses} />
-      <NewExpense/>
-     
-      
-    
+  
     </div>
   );
 }
